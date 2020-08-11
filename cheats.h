@@ -4,10 +4,10 @@
 class gtav_cheats
 {
 private:
-	r_hwnd m_hwnd;			//gtav´°¿Ú¾ä±ú
-	r_dword m_pid;			//gtav½ø³ÌID
-	r_handle m_proc;		//gtav½ø³Ì¾ä±ú
-	r_hmodue m_mod;		//gtavÖ÷ÒªÄ£¿é
+	r_hwnd m_hwnd;			//gtavçª—å£å¥æŸ„
+	r_dword m_pid;			//gtavè¿›ç¨‹ID
+	r_handle m_proc;		//gtavè¿›ç¨‹å¥æŸ„
+	r_hmodue m_mod;		//gtavä¸»è¦æ¨¡å—
 
 private:
 	long		ADDRESS_WORLD = 0;
@@ -50,41 +50,41 @@ private:
 private:
 	bool m_show = true;
 
-	bool m_state_unlimited_endurance = true;
-	bool m_state_npc_ignore_player = true;
-	bool m_state_player_god_mode = true;
-	bool m_state_never_fall = true;
+	bool m_state_unlimited_endurance = false;
+	bool m_state_npc_ignore_player = false;
+	bool m_state_player_god_mode = false;
+	bool m_state_never_fall = false;
 	bool m_state_fake_dead_hide = false;
-	bool m_state_vehicle_god_mode = true;
+	bool m_state_vehicle_god_mode = false;
 	bool m_state_infinite_jet = false;
-	bool m_state_super_weapon_damage = true;
-	bool m_state_unlimited_ammo = true;
-	bool m_state_space_based_gun_without_cooling = true;
+	bool m_state_super_weapon_damage = false;
+	bool m_state_unlimited_ammo = false;
+	bool m_state_space_based_gun_without_cooling = false;
 	bool m_state_unlock_bunker_research = false;
 	bool m_state_anti_AFK_kick_out = true;
 	bool m_state_money_bag = false;
 
 private:
-	//²éÕÒÖ¸¶¨Ãû³ÆµÄmod
+	//æŸ¥æ‰¾æŒ‡å®šåç§°çš„mod
 	r_hmodue get_mod_addr(const r_wchar* str);
 
-	//¸üĞÂµØÖ·ÁĞ±í
+	//æ›´æ–°åœ°å€åˆ—è¡¨
 	void update_addrs();
 
-	//ÏÔÊ¾²Ëµ¥
+	//æ˜¾ç¤ºèœå•
 	void show_menu();
 
-	//»ñÈ¡±ê¼Çµã
+	//è·å–æ ‡è®°ç‚¹
 	vector_2 get_target_point();
 
-	//»ñÈ¡ÈÎÎñµã
+	//è·å–ä»»åŠ¡ç‚¹
 	vector_3 get_aim_point();
 
-	//¿ªÊ¼´«ËÍ
+	//å¼€å§‹ä¼ é€
 	void start_move(vector_3 dest);
 
 private:
-	//¶ÁÈ¡ÄÚ´æ
+	//è¯»å–å†…å­˜
 	template<class T>
 	T read(r_dword_ptr addr)
 	{
@@ -100,7 +100,7 @@ private:
 		return result;
 	}
 
-	//Ğ´ÈëÄÚ´æ
+	//å†™å…¥å†…å­˜
 	template<class T>
 	void write(r_dword_ptr addr, T buffer)
 	{
@@ -114,100 +114,100 @@ private:
 	}
 
 private:
-	//´«ËÍµ½Ä¿±êµã
+	//ä¼ é€åˆ°ç›®æ ‡ç‚¹
 	void move_to_target();
 
-	//´«ËÍµ½ÈÎÎñµã
+	//ä¼ é€åˆ°ä»»åŠ¡ç‚¹
 	void move_to_aim();
 
-	//È¡ÏûÍ¨¼©µÈ¼¶
+	//å–æ¶ˆé€šç¼‰ç­‰çº§
 	void clear_wanted();
 
-	//×ÔÉ±
+	//è‡ªæ€
 	void kill_self();
 
-	//×ø½ø¸öÈËÔØ¾ß
+	//åè¿›ä¸ªäººè½½å…·
 	void sit_in_personal_vehicle();
 
-	//ÎŞÏŞÄÍÁ¦
+	//æ— é™è€åŠ›
 	void unlimited_endurance(bool state);
 
-	//npcºöÂÔÍæ¼Ò
+	//npcå¿½ç•¥ç©å®¶
 	void npc_ignore_player(bool state);
 
-	//Íæ¼ÒÉÏµÛÄ£Ê½
+	//ç©å®¶ä¸Šå¸æ¨¡å¼
 	void player_god_mode(bool state);
 
-	//ÓÀ²»Ë¤µ¹
+	//æ°¸ä¸æ‘”å€’
 	void never_fall(bool state);
 
-	//¼ÙËÀÀ×´ïÒş²Ø
+	//å‡æ­»é›·è¾¾éšè—
 	void fake_dead_hide(bool state);
 
-	//³µÁ¾ÉÏµÛÄ£Ê½
+	//è½¦è¾†ä¸Šå¸æ¨¡å¼
 	void vehicle_god_mode(bool state);
 
-	//ÎŞÏŞÅçÉä
+	//æ— é™å–·å°„
 	void infinite_jet(bool state);
 
-	//ÎŞµĞ³¬¼¶ÉËº¦
+	//æ— æ•Œè¶…çº§ä¼¤å®³
 	void super_weapon_damage(bool state);
 
-	//ÎŞÏŞµ¯Ò©
+	//æ— é™å¼¹è¯
 	void unlimited_ammo(bool state);
 
-	//Ìì»ùÅÚÎŞÀäÈ´
+	//å¤©åŸºç‚®æ— å†·å´
 	void space_based_gun_without_cooling(bool state);
 
-	//ÁÙÊ±½âËøµØ±¤ÑĞ¾¿
+	//ä¸´æ—¶è§£é”åœ°å ¡ç ”ç©¶
 	void unlock_bunker_research(bool state);
 
-	//·´AFKÌß³ö
+	//åAFKè¸¢å‡º
 	void anti_AFK_kick_out(bool state);
 
-	//Ç®´üË¢Ç®
+	//é’±è¢‹åˆ·é’±
 	void money_bag(bool state);
 
-	//ÁĞ±íĞÅÏ¢´¦Àí
+	//åˆ—è¡¨ä¿¡æ¯å¤„ç†
 	void handle_queue();
 
-	//¼ÓÈëÕ½¾Ö´¦Àí
+	//åŠ å…¥æˆ˜å±€å¤„ç†
 	void battle_handle(int tip);
 
-	//Éú³ÉÔØ¾ß
+	//ç”Ÿæˆè½½å…·
 	void generate_vehicle(unsigned int val);
 
-	//½ÇÉ«ÊôĞÔÈ«Âú
+	//è§’è‰²å±æ€§å…¨æ»¡
 	void full_character_attributes();
 
-	//ÁãÊ³·Àµ¯ÒÂÈ«Âú
+	//é›¶é£Ÿé˜²å¼¹è¡£å…¨æ»¡
 	void full_body_snacks();
 
-	//½âËø¸Ä³µÅä¼ş
+	//è§£é”æ”¹è½¦é…ä»¶
 	void unlock_car_accessories();
 
-	//½âËøÎäÆ÷Í¿×°
+	//è§£é”æ­¦å™¨æ¶‚è£…
 	void unlock_weapon_paint();
 
-	//½âËøÅú·¢¼Û
+	//è§£é”æ‰¹å‘ä»·
 	void unlock_wholesale_price();
 
-	//½âËø½±ÕÂ
+	//è§£é”å¥–ç« 
 	void unlock_medal();
 
-	//½âËøÒÂ·ş
+	//è§£é”è¡£æœ
 	void unlock_clothes();
 
-	//¶Ä³¡ºÀ½Ù
+	//èµŒåœºè±ªåŠ«
 	void casino_holocaust(int index);
 
 public:
 	gtav_cheats();
 	~gtav_cheats();
 
-	//³õÊ¼»¯gtav
+	//åˆå§‹åŒ–gtav
 	void initialize_gtav();
 
-	//¿ªÊ¼grav×÷±×
+	//å¼€å§‹gravä½œå¼Š
 	void start_cheats();
 };
