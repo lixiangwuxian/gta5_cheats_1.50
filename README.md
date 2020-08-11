@@ -1,9 +1,5 @@
 ## gta5_cheats_1.50
 
-<h1 align="center">
-	<img src="temp.png" alt="">
-</h1>
-
 ## GTA5外挂程序
 
 ## 支持线上和线下
